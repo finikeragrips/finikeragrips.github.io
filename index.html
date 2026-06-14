@@ -559,5 +559,28 @@
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="scroll-cinematic.js"></script>
   <script src="app.js"></script>
+
+  <!-- Background music via YouTube (hidden player, starts at 20s) -->
+  <div id="yt-player" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;pointer-events:none;opacity:0;z-index:-1"></div>
+  <script>
+    var ytPlayer;
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('yt-player', {
+        videoId: 'ko6F0OXwaf8',
+        playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'ko6F0OXwaf8', mute: 0 },
+        events: {
+          onReady: function(e) {
+            setTimeout(function() {
+              e.target.setVolume(40);
+              e.target.playVideo();
+            }, 20000);
+          }
+        }
+      });
+    }
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+  </script>
 </body>
 </html>
