@@ -560,23 +560,33 @@
   <script src="scroll-cinematic.js"></script>
   <script src="app.js"></script>
 
-  <!-- Background music via YouTube (hidden player, starts at 20s) -->
+  <!-- Background music via YouTube (hidden player) -->
   <div id="yt-player" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;pointer-events:none;opacity:0;z-index:-1"></div>
   <script>
-    var ytPlayer;
+    var ytPlayer, ytReady = false, played = false;
+
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('yt-player', {
         videoId: 'ko6F0OXwaf8',
-        playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'ko6F0OXwaf8', mute: 0 },
+        playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'ko6F0OXwaf8' },
         events: {
-          onReady: function(e) {
-            e.target.seekTo(20);
-            e.target.setVolume(40);
-            e.target.playVideo();
-          }
+          onReady: function() { ytReady = true; tryPlay(); }
         }
       });
     }
+
+    function tryPlay() {
+      if (!ytReady || played) return;
+      played = true;
+      ytPlayer.seekTo(20);
+      ytPlayer.setVolume(40);
+      ytPlayer.playVideo();
+    }
+
+    ['click','scroll','keydown','touchstart'].forEach(function(ev) {
+      document.addEventListener(ev, tryPlay, { once: true, passive: true });
+    });
+
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     document.head.appendChild(tag);
