@@ -570,10 +570,8 @@
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'ko6F0OXwaf8', mute: 0 },
         events: {
           onReady: function(e) {
-            setTimeout(function() {
-              e.target.setVolume(40);
-              e.target.playVideo();
-            }, 20000);
+            e.target.setVolume(40);
+            e.target.playVideo();
           }
         }
       });
