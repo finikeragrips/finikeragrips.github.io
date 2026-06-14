@@ -560,6 +560,29 @@
   <script src="scroll-cinematic.js"></script>
   <script src="app.js"></script>
 
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;align-items:center;justify-content:center;cursor:zoom-out">
+    <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;border:1px solid rgba(201,162,39,0.3);box-shadow:0 0 80px rgba(201,162,39,0.15)"/>
+    <div id="lightbox-close" style="position:absolute;top:20px;right:28px;color:#c9a227;font-size:36px;cursor:pointer;line-height:1">✕</div>
+  </div>
+  <script>
+    (function() {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.product-card').forEach(function(card) {
+        card.style.cursor = 'zoom-in';
+        card.addEventListener('click', function(e) {
+          e.preventDefault();
+          var bg = card.querySelector('.product-card__bg');
+          var url = bg.style.background.match(/url\(['"]?([^'"]+)['"]?\)/);
+          if (url) { lbImg.src = url[1]; lb.style.display = 'flex'; }
+        });
+      });
+      lb.addEventListener('click', function() { lb.style.display = 'none'; lbImg.src = ''; });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { lb.style.display = 'none'; } });
+    })();
+  </script>
+
   <!-- Background music -->
   <script>
     var musicStarted = false;
