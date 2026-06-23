@@ -108,6 +108,7 @@
         <button class="chip active" data-filter="*">Todos</button>
         <button class="chip" data-filter="colt1911">Colt 1911</button>
         <button class="chip" data-filter="hipower">Hi-Power Browning</button>
+        <button class="chip" data-filter="estuches">Estuches</button>
       </div>
 
       <div class="filter-chips hidden" id="filter-chips-color">
@@ -125,10 +126,23 @@
     </div>
 
     <!-- RESULTS COUNT -->
-    <div class="filter-count"><span id="filter-count-num">29</span> productos</div>
+    <div class="filter-count"><span id="filter-count-num">30</span> productos</div>
 
     <!-- PRODUCT GRID -->
     <div class="products__grid" id="products-grid">
+
+      <!-- ESTUCHE 1911 -->
+      <div class="product-card product-card--featured" data-modelo="estuches" data-color="negro">
+        <div class="product-card__bg" style="background:url('assets/estuche-01.jpg') center/cover"></div>
+        <div class="product-card__shine"></div>
+        <div class="product-card__content">
+          <span class="product-card__tag">ESTUCHE 1911</span>
+          <h3 class="product-card__name">ESTUCHE PREMIUM<br/>NEGRO VIRGEN</h3>
+          <p class="product-card__desc">Estuche de presentación con cachas perla negra y Virgen María en chapa de oro para 1911</p>
+          <div class="product-card__meta"><span class="meta-color negro"></span> Negro Perla</div>
+          <span class="product-card__link">Ver imagen →</span>
+        </div>
+      </div>
 
       <!-- COLT 1911 -->
       <div class="product-card product-card--featured" data-modelo="colt1911" data-color="azul">
