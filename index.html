@@ -703,21 +703,5 @@
     })();
   </script>
 
-  <!-- Background music -->
-  <script>
-    var musicStarted = false;
-    function startMusic() {
-      if (musicStarted) return;
-      musicStarted = true;
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/ko6F0OXwaf8?autoplay=1&start=20&loop=1&playlist=ko6F0OXwaf8&controls=0&mute=0';
-      iframe.allow = 'autoplay; encrypted-media';
-      iframe.style.cssText = 'position:fixed;width:1px;height:1px;bottom:0;left:0;opacity:0;pointer-events:none;z-index:-1;border:none';
-      document.body.appendChild(iframe);
-    }
-    ['click','scroll','touchstart','keydown'].forEach(function(e) {
-      document.addEventListener(e, startMusic, { once: true, passive: true });
-    });
-  </script>
 </body>
 </html>
