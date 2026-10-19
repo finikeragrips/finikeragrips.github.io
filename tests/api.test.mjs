@@ -7,11 +7,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const TOKEN = 'test-token-0123456789-abcdefghij';
-process.env.FG_LOCAL_STORE = mkdtempSync(path.join(tmpdir(), 'fg-'));
-process.env.FG_SITE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-process.env.ADMIN_TOKEN = TOKEN;
 let api;
-before(async () => { api = (await import('../netlify/functions/api.mjs')).default; });
+before(async () => {
+  const { nodeHandler } = await import('../server/node.mjs');
+  api = nodeHandler({
+    root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'),
+    dataDir: mkdtempSync(path.join(tmpdir(), 'fg-')),
+    env: { ADMIN_TOKEN: TOKEN }
+  });
+});
 
 const call = (p, init = {}) => api(new Request('http://x/api/' + p, init));
 const admin = (p, init = {}) => call('admin/' + p, { ...init, headers: { authorization: `Bearer ${TOKEN}`, ...(init.headers || {}) } });

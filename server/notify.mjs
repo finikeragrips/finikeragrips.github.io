@@ -2,8 +2,8 @@
 // Enabled only when RESEND_API_KEY, NOTIFY_EMAIL and FROM_EMAIL are set.
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-export async function notifyOrder(order) {
-  const { RESEND_API_KEY, NOTIFY_EMAIL, FROM_EMAIL } = process.env;
+export async function notifyOrder(order, env = {}) {
+  const { RESEND_API_KEY, NOTIFY_EMAIL, FROM_EMAIL } = env;
   if (!RESEND_API_KEY || !NOTIFY_EMAIL || !FROM_EMAIL) return;
   const rows = order.summary.map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#666">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('');
   const body = `<h2>${esc(order.ref)}</h2><table>${rows}</table>`;

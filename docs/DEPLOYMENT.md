@@ -3,7 +3,10 @@
 ## Architecture
 - Static site with no build step, served from the repo root: `index.html`, `shop.html`, `custom-cases.html`, `gallery.html`, `about.html`, `faq.html`, `contact.html`, `checkout.html`, `order.html`, `admin/`.
 - Data: `data/products.json` (the 55 products extracted from the old page), `data/case-options.json` (studio options and pricing), `data/gallery.json`.
-- API: one Netlify Function, `netlify/functions/api.mjs`, routed at `/api/*`. It stores orders, private customer uploads, product media and the admin-edited catalog/options in Netlify Blobs.
+- API: platform-neutral handler `server/handler.mjs`, with three thin entries:
+  - **Cloudflare Pages (recommended):** `functions/api/[[path]].js`, storage in Workers KV (binding `FG_KV`).
+  - Netlify: `netlify/functions/api.mjs`, storage in Netlify Blobs.
+  - Local/tests: `server/node.mjs`, storage in the `.data/` folder.
 - Shared validation and pricing: `js/lib/case-config.mjs`, used by both the browser and the server.
 - On GitHub Pages (no API) the site still works. The catalog loads from the JSON files, and orders fall back to an Instagram DM hand-off with a reference number and summary.
 
@@ -11,6 +14,22 @@
     npm install
     ADMIN_TOKEN=$(openssl rand -hex 24) npm run dev     # http://localhost:8888 , admin at /admin/
     npm test                                             # API tests
+
+## Cloudflare Pages (recommended — the Netlify account is suspended)
+1. dash.cloudflare.com → **Workers & Pages → Create → Pages → Connect to Git** → repo `finikeragrips.github.io`.
+2. Build settings: production branch `redesign-v2`, framework **None**, build command `node scripts/build-public.mjs`, output directory `dist`.
+3. **Storage & Databases → KV → Create namespace** `finikera-grips`.
+4. Project → **Settings → Bindings → Add → KV namespace**: variable name `FG_KV`, namespace `finikera-grips`. Add it for Production and Preview.
+5. **Settings → Variables and Secrets → Add**: type *Secret*, name `ADMIN_TOKEN`, ≥24 random characters. Optional: `RESEND_API_KEY`, `NOTIFY_EMAIL`, `FROM_EMAIL`.
+6. **Deployments → Retry deployment**, so it picks up the bindings. Test the `*.pages.dev` URL.
+- Cloudflare drops `.html` from URLs (`/shop.html` → `/shop`). Old links keep working through a redirect.
+- `_headers` provides the security headers. `dist/` never contains the HEIC originals, server code or docs.
+- KV is eventually consistent: admin changes can take up to about 60 seconds to show everywhere.
+- Check Cloudflare's terms of service for firearm-accessory merchants before going live.
+- Rollback: Deployments → previous deploy → **Rollback to this deployment**.
+
+## Netlify (alternative)
+The steps below still apply if the Netlify account is reinstated.
 
 ## Safe rollout (don't overwrite production first)
 1. The work is on branch `redesign-v2`. `main` (the live GitHub Pages site) is untouched.

@@ -7,9 +7,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-process.env.FG_LOCAL_STORE ||= path.join(root, '.data');
-process.env.FG_SITE_ROOT ||= root;
-const { default: api } = await import('../netlify/functions/api.mjs');
+const { nodeHandler } = await import('../server/node.mjs');
+const api = nodeHandler({ root, dataDir: process.env.FG_LOCAL_STORE || path.join(root, '.data') });
 const PORT = Number(process.env.PORT || 8888);
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain', '.webp': 'image/webp' };

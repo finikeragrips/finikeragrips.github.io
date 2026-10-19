@@ -1,10 +1,9 @@
-// Storage adapter. Production: Netlify Blobs. Local dev/tests: a directory on disk
-// (set FG_LOCAL_STORE=/path) so the API runs without Netlify.
+// Filesystem blob store for local preview and tests (same interface as Netlify Blobs).
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
-function fsStore(name) {
-  const root = path.join(process.env.FG_LOCAL_STORE, name);
+export function fsStore(dir, name) {
+  const root = path.join(dir, name);
   const file = key => {
     const p = path.join(root, key);
     if (!p.startsWith(root + path.sep)) throw new Error('bad key');
@@ -48,10 +47,4 @@ function fsStore(name) {
       return { blobs: out.filter(b => b.key.startsWith(prefix)) };
     }
   };
-}
-
-export async function store(name) {
-  if (process.env.FG_LOCAL_STORE) return fsStore(name);
-  const { getStore } = await import('@netlify/blobs');
-  return getStore({ name, consistency: 'strong' });
 }

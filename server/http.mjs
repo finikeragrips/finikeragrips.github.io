@@ -1,5 +1,3 @@
-import { timingSafeEqual, createHash } from 'node:crypto';
-
 const SECURITY_HEADERS = { 'x-content-type-options': 'nosniff', 'cache-control': 'no-store' };
 
 export const json = (data, status = 200, headers = {}) =>
@@ -7,15 +5,19 @@ export const json = (data, status = 200, headers = {}) =>
 
 export const error = (status, message, extra = {}) => json({ error: message, ...extra }, status);
 
-const digest = s => createHash('sha256').update(String(s)).digest();
+const digest = async s => new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(String(s))));
 
-// Admin auth: a long random ADMIN_TOKEN env var, compared in constant time.
-export function isAdmin(req) {
-  const expected = process.env.ADMIN_TOKEN;
+// Admin auth: a long random ADMIN_TOKEN env var. Both sides are hashed, then compared without early exit.
+export async function isAdmin(req, env = {}) {
+  const expected = env.ADMIN_TOKEN;
   if (!expected || expected.length < 24) return false;
   const header = req.headers.get('authorization') || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : '';
-  return token.length > 0 && timingSafeEqual(digest(token), digest(expected));
+  if (!token) return false;
+  const [a, b] = await Promise.all([digest(token), digest(expected)]);
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a[i] ^ b[i];
+  return diff === 0;
 }
 
 // Identify real image types from their first bytes — never trust the client's MIME type.
