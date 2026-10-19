@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="icon" href="/assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&family=Pinyon+Script&display=swap" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <meta property="og:site_name" content="Finikera Grips" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://finikeragrips.github.io/assets/estuche-01.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Estudio de estuches a medida | Finikera Grips</title>
+  <meta name="description" content="Diseña tu estuche de presentación: modelo, madera o laca, terciopelo interior, herrajes, monograma y pintura a mano. Vista previa en vivo y cotización." />
+  <link rel="canonical" href="https://finikeragrips.github.io/custom-cases.html" />
+  <meta property="og:title" content="Estudio de estuches — Finikera Grips" />
+  <meta property="og:url" content="https://finikeragrips.github.io/custom-cases.html" />
+  <meta property="og:image" content="https://finikeragrips.github.io/assets/estuche-07.jpg" />
+</head>
+<body>
+<main id="main" class="studio">
+  <section class="studio__stage" aria-label="Vista previa del diseño">
+    <div class="stage-bar">
+      <div class="seg" role="group" aria-label="Vista">
+        <button type="button" data-view="closed" aria-pressed="true">Cerrado</button>
+        <button type="button" data-view="open" aria-pressed="false">Abierto</button>
+      </div>
+      <span class="tiny">Vista esquemática</span>
+    </div>
+    <div class="preview" id="preview" aria-live="polite"></div>
+    <div class="stage-foot">
+      <span class="tiny">Fotos reales de estos acabados</span>
+      <div class="refs" id="refs"></div>
+      <p class="small muted" style="margin:0">La vista es una guía de colores y distribución. Cada estuche se hace y pinta a mano: el resultado final se confirma contigo antes de producir.</p>
+    </div>
+  </section>
+  <section class="studio__panel">
+    <p class="eyebrow">Estudio de estuches</p>
+    <h1 class="h2">Diseña tu estuche</h1>
+    <p class="muted small" style="margin:0 0 16px">Seis pasos. Tu diseño se guarda automáticamente en este navegador.</p>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div id="steps"></div>
+  </section>
+  <div class="mobile-bar">
+    <div><span class="tiny">Tu estuche</span><div id="mobile-price" class="h3" style="margin:0"></div></div>
+    <button class="btn btn--sm" type="button" id="mobile-review">Revisar</button>
+  </div>
+</main>
+<script type="module" src="/js/studio.js"></script>
+</body>
+</html>

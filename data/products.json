@@ -1,0 +1,923 @@
+{
+ "currency": "USD",
+ "products": [
+  {
+   "id": "estuches-estuche-premium-negro-virgen",
+   "type": "case",
+   "model": "estuches",
+   "color": "negro",
+   "name": "Estuche Premium Negro Virgen",
+   "description": "Estuche de presentación con cachas perla negra y Virgen María en chapa de oro para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/estuche-01.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "estuches-estuche-colt-madera-grabada",
+   "type": "case",
+   "model": "estuches",
+   "color": "cafe",
+   "name": "Estuche Colt Madera Grabada",
+   "description": "Estuche de presentación en madera con caballo Colt grabado, interior en terciopelo vino y herrajes dorados para 1911",
+   "finish": "Café / Vino",
+   "images": [
+    "assets/estuche-06.jpg",
+    "assets/estuche-07.jpg",
+    "assets/estuche-05.jpg",
+    "assets/estuche-02.jpg",
+    "assets/estuche-03.jpg",
+    "assets/estuche-04.jpg",
+    "assets/estuche-08.jpg",
+    "assets/estuche-09.jpg",
+    "assets/estuche-10.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "estuches-estuche-blanco-colt-1911",
+   "type": "case",
+   "model": "estuches",
+   "color": "blanco",
+   "name": "Estuche Blanco Colt 1911",
+   "description": "Estuche de presentación en laca blanca con caballo Colt grabado, interior en terciopelo vino para 1911",
+   "finish": "Blanco Laca",
+   "images": [
+    "assets/estuche-12.jpg",
+    "assets/estuche-11.jpg",
+    "assets/estuche-13.jpg",
+    "assets/estuche-14.jpg",
+    "assets/estuche-15.jpg",
+    "assets/estuche-16.jpg",
+    "assets/estuche-17.jpg",
+    "assets/estuche-18.jpg",
+    "assets/estuche-19.jpg",
+    "assets/estuche-20.jpg",
+    "assets/estuche-21.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "estuches-estuche-negro-colt-1911",
+   "type": "case",
+   "model": "estuches",
+   "color": "negro",
+   "name": "Estuche Negro Colt 1911",
+   "description": "Estuche de presentación en laca negra con 1911 de cachas negras y grabado en chapa de oro",
+   "finish": "Negro Laca",
+   "images": [
+    "assets/estuche-22.jpg",
+    "assets/estuche-23.jpg",
+    "assets/estuche-24.jpg",
+    "assets/estuche-25.jpg",
+    "assets/estuche-26.jpg",
+    "assets/estuche-27.jpg",
+    "assets/estuche-28.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "estuches-estuche-negro-browning",
+   "type": "case",
+   "model": "estuches",
+   "color": "negro",
+   "name": "Estuche Negro Browning",
+   "description": "Estuche de presentación en laca negra con grabado Browning e interior en terciopelo vino para Hi-Power",
+   "finish": "Negro Laca",
+   "images": [
+    "assets/estuche-38.jpg",
+    "assets/estuche-29.jpg",
+    "assets/estuche-30.jpg",
+    "assets/estuche-31.jpg",
+    "assets/estuche-32.jpg",
+    "assets/estuche-33.jpg",
+    "assets/estuche-34.jpg",
+    "assets/estuche-35.jpg",
+    "assets/estuche-36.jpg",
+    "assets/estuche-37.jpg",
+    "assets/estuche-39.jpg",
+    "assets/estuche-40.jpg",
+    "assets/estuche-41.jpg",
+    "assets/estuche-42.jpg",
+    "assets/estuche-43.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-azul-perla-potro-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "azul",
+   "name": "Azul Perla Potro Plata",
+   "description": "Acabado perla azul con potro en chapa color plata para 1911",
+   "finish": "Azul Perla",
+   "images": [
+    "assets/gp01.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla Potro Dorado",
+   "description": "Acabado perla negra con potro en chapa color oro para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp02.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-rojo-perla-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "rojo",
+   "name": "Rojo Perla Potro Dorado",
+   "description": "Acabado rojo rubí con potro en chapa color oro para 1911",
+   "finish": "Rojo Perla",
+   "images": [
+    "assets/gp03.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-virgen-dorada",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla Virgen Dorada",
+   "description": "Acabado perla blanca con medalla de la Virgen María en chapa de oro para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp08.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-diamantado-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "dorado",
+   "name": "Diamantado Potro Dorado",
+   "description": "Cachas diamantadas en chapa de oro con potro dorado para 1911",
+   "finish": "Dorado Diamantado",
+   "images": [
+    "assets/gp09.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-marmol-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Mármol Potro Dorado",
+   "description": "Acabado mármol negro con medallón potro en chapa de oro para 1911",
+   "finish": "Negro Mármol",
+   "images": [
+    "assets/gp10.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-marmol-diamantado-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Mármol Diamantado Plata",
+   "description": "Acabado mármol negro con medallón diamantado en plata para 1911",
+   "finish": "Negro Mármol",
+   "images": [
+    "assets/gp11.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-san-juditas-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla San Juditas Plata",
+   "description": "Acabado perla negra con San Juditas en chapa color plata para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp12.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-san-juditas-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla San Juditas Plata",
+   "description": "Acabado perla blanca con San Juditas en chapa color plata para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp13.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-natural-potro-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Natural Potro Plata",
+   "description": "Cachas en madera natural diamantada con potro en chapa plata para 1911",
+   "finish": "Madera Natural",
+   "images": [
+    "assets/gp14.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-verde-filigrana-san-judas-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "verde",
+   "name": "Verde Filigrana San Judas Dorado",
+   "description": "Cachas verde esmeralda con filigrana y San Judas en chapa de oro para 1911",
+   "finish": "Verde Filigrana",
+   "images": [
+    "assets/gp21.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-grabado-gallo-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Grabado Gallo Dorado",
+   "description": "Cachas en blanco con grabado floral y gallo en chapa de oro para 1911",
+   "finish": "Blanco Grabado",
+   "images": [
+    "assets/gp22.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-gallo-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Gallo Dorado",
+   "description": "Cachas negras con gallo en chapa de oro para 1911",
+   "finish": "Negro",
+   "images": [
+    "assets/gp23.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-clasica",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla Clásica",
+   "description": "Cachas en acabado perla negra clásica con tornillos dorados para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp24.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-hueso-clasica-medallon-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Hueso Clásica Medallón Plata",
+   "description": "Cachas en acabado hueso/crema clásico con medallón en plata para 1911",
+   "finish": "Hueso",
+   "images": [
+    "assets/gp25.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-cafe-ambar-medallon-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "cafe",
+   "name": "Café Ámbar Medallón Plata",
+   "description": "Cachas en perla café ámbar con medallón en chapa plata para 1911",
+   "finish": "Café Ámbar",
+   "images": [
+    "assets/gp26.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-aguila-mexicana",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla Águila Mexicana",
+   "description": "Acabado perla negra con Águila Mexicana en chapa de oro para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp27.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-san-judas-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla San Judas Dorado",
+   "description": "Acabado perla negra con San Judas en chapa de oro para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp28.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-marmol-aguila-mexicana",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Mármol Águila Mexicana",
+   "description": "Acabado mármol negro con Águila Mexicana en chapa de oro para 1911",
+   "finish": "Negro Mármol",
+   "images": [
+    "assets/gp29.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-marmol-san-judas-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Mármol San Judas Dorado",
+   "description": "Acabado mármol negro con San Judas en chapa de oro para 1911",
+   "finish": "Negro Mármol",
+   "images": [
+    "assets/gp30.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-cafe-perla-aguila-mexicana",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "cafe",
+   "name": "Café Perla Águila Mexicana",
+   "description": "Acabado perla café con Águila Mexicana en chapa de oro para 1911",
+   "finish": "Café Perla",
+   "images": [
+    "assets/gp31.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-cafe-perla-san-judas-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "cafe",
+   "name": "Café Perla San Judas Dorado",
+   "description": "Acabado perla café con San Judas en chapa de oro para 1911",
+   "finish": "Café Perla",
+   "images": [
+    "assets/gp32.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-clasica",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla Clásica",
+   "description": "Cachas en acabado perla blanca clásica para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp33.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-rojo-perla-moneda-dorada",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "rojo",
+   "name": "Rojo Perla Moneda Dorada",
+   "description": "Acabado rojo perla con moneda de águila en chapa de oro para 1911",
+   "finish": "Rojo Perla",
+   "images": [
+    "assets/gp34.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-rojo-perla-moneda-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "rojo",
+   "name": "Rojo Perla Moneda Plata",
+   "description": "Acabado rojo perla con moneda de águila en color plata para 1911",
+   "finish": "Rojo Perla",
+   "images": [
+    "assets/gp35.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-rojo-perla-clasica-oro",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "rojo",
+   "name": "Rojo Perla Clásica Oro",
+   "description": "Acabado rojo perla clásico con tornillería en chapa de oro para 1911",
+   "finish": "Rojo Perla",
+   "images": [
+    "assets/gp36.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-azul-perla-moneda-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "azul",
+   "name": "Azul Perla Moneda Plata",
+   "description": "Acabado azul perla con moneda de águila en color plata para 1911",
+   "finish": "Azul Perla",
+   "images": [
+    "assets/gp37.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-azul-perla-moneda-dorada",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "azul",
+   "name": "Azul Perla Moneda Dorada",
+   "description": "Acabado azul perla con moneda de águila en chapa de oro para 1911",
+   "finish": "Azul Perla",
+   "images": [
+    "assets/gp38.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-grabado-azteca",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla Grabado Azteca",
+   "description": "Perla blanca con marco grabado estilo azteca en plata y potro en chapa de oro para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp39.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-morado-perla-potro-diamantado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "morado",
+   "name": "Morado Perla Potro Diamantado",
+   "description": "Acabado morado perla con potro diamantado en color plata para 1911",
+   "finish": "Morado Perla",
+   "images": [
+    "assets/gp40.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-pina-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Piña Potro Dorado",
+   "description": "Madera tallada estilo piña en dos tonos con potro en chapa de oro para 1911",
+   "finish": "Madera",
+   "images": [
+    "assets/gp41.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-pina-potro-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Piña Potro Plata",
+   "description": "Madera tallada estilo piña en dos tonos con potro en color plata para 1911",
+   "finish": "Madera",
+   "images": [
+    "assets/gp42.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-rosa-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Rosa Potro Dorado",
+   "description": "Madera rosa cuadrillada con potro en chapa de oro para 1911",
+   "finish": "Madera",
+   "images": [
+    "assets/gp43.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-rosa-potro-plata",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Rosa Potro Plata",
+   "description": "Madera rosa cuadrillada con potro diamantado en color plata para 1911",
+   "finish": "Madera",
+   "images": [
+    "assets/gp44.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-resina-verde-y-madera",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "verde",
+   "name": "Resina Verde Y Madera",
+   "description": "Combinación de resina verde esmeralda y madera fina para 1911",
+   "finish": "Verde / Madera",
+   "images": [
+    "assets/gp45.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-resina-azul-y-madera-olivo",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "azul",
+   "name": "Resina Azul Y Madera Olivo",
+   "description": "Combinación de resina azul marina y madera de olivo para 1911",
+   "finish": "Azul / Madera",
+   "images": [
+    "assets/gp46.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-san-judas-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla San Judas Dorado",
+   "description": "Perla blanca con figura de San Judas Tadeo en chapa de oro para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp47.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-negro-perla-potro-diamantado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "negro",
+   "name": "Negro Perla Potro Diamantado",
+   "description": "Acabado negro perla con potro diamantado en color plata para 1911",
+   "finish": "Negro Perla",
+   "images": [
+    "assets/gp48.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-madera-grabada-potro-dorado",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "madera",
+   "name": "Madera Grabada Potro Dorado",
+   "description": "Madera fina con grabado floral tallado y potro en chapa de oro para 1911",
+   "finish": "Madera",
+   "images": [
+    "assets/gp49.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "colt1911-blanco-perla-alacran-negro",
+   "type": "grip",
+   "model": "colt1911",
+   "color": "blanco",
+   "name": "Blanco Perla Alacrán Negro",
+   "description": "Perla blanca con alacrán en relieve negro para 1911",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp50.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-diamantado-ambar-san-judas-plata",
+   "type": "grip",
+   "model": "hipower",
+   "color": "dorado",
+   "name": "Diamantado Ámbar San Judas Plata",
+   "description": "Cachas diamantadas ámbar con San Judas en plata para Hi-Power Browning",
+   "finish": "Ámbar Diamantado",
+   "images": [
+    "assets/gp15.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-diamantado-ambar-logo-browning-plata",
+   "type": "grip",
+   "model": "hipower",
+   "color": "dorado",
+   "name": "Diamantado Ámbar Logo Browning Plata",
+   "description": "Cachas diamantadas ámbar con logo Browning en plata para Hi-Power",
+   "finish": "Ámbar Diamantado",
+   "images": [
+    "assets/gp16.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-diamantado-blanco-san-judas-dorado",
+   "type": "grip",
+   "model": "hipower",
+   "color": "dorado",
+   "name": "Diamantado Blanco San Judas Dorado",
+   "description": "Cachas diamantadas blancas con San Judas en chapa de oro para Hi-Power",
+   "finish": "Blanco Diamantado",
+   "images": [
+    "assets/gp17.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-diamantado-blanco-logo-browning-dorado",
+   "type": "grip",
+   "model": "hipower",
+   "color": "dorado",
+   "name": "Diamantado Blanco Logo Browning Dorado",
+   "description": "Cachas diamantadas blancas con logo Browning en chapa de oro para Hi-Power",
+   "finish": "Blanco Diamantado",
+   "images": [
+    "assets/gp18.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-blanco-perla-browning-dorado",
+   "type": "grip",
+   "model": "hipower",
+   "color": "blanco",
+   "name": "Blanco Perla Browning Dorado",
+   "description": "Cachas en perla blanca con logo Browning en chapa de oro para Hi-Power",
+   "finish": "Blanco Perla",
+   "images": [
+    "assets/gp19.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "hipower-negro-browning-dorado",
+   "type": "grip",
+   "model": "hipower",
+   "color": "negro",
+   "name": "Negro Browning Dorado",
+   "description": "Cachas negras con logo Browning en chapa de oro para Hi-Power",
+   "finish": "Negro",
+   "images": [
+    "assets/gp20.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "beretta92-nogal-oscuro-medalla-beretta-oro",
+   "type": "grip",
+   "model": "beretta92",
+   "color": "cafe",
+   "name": "Nogal Oscuro Medalla Beretta Oro",
+   "description": "Madera de nogal oscuro con medalla Beretta en chapa de oro para Beretta 92",
+   "finish": "Nogal Oscuro",
+   "images": [
+    "assets/gp51.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "beretta92-nogal-cuadrillado-logo-beretta",
+   "type": "grip",
+   "model": "beretta92",
+   "color": "madera",
+   "name": "Nogal Cuadrillado Logo Beretta",
+   "description": "Madera de nogal cuadrillada con logo Beretta tallado para Beretta 92",
+   "finish": "Nogal",
+   "images": [
+    "assets/gp52.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "beretta92-madera-roja-logo-beretta",
+   "type": "grip",
+   "model": "beretta92",
+   "color": "rojo",
+   "name": "Madera Roja Logo Beretta",
+   "description": "Madera roja cuadrillada con logo Beretta tallado para Beretta 92",
+   "finish": "Madera Roja",
+   "images": [
+    "assets/gp53.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
+   "id": "beretta92-madera-natural-logo-beretta",
+   "type": "grip",
+   "model": "beretta92",
+   "color": "madera",
+   "name": "Madera Natural Logo Beretta",
+   "description": "Madera clara natural cuadrillada con logo Beretta tallado para Beretta 92",
+   "finish": "Madera Clara",
+   "images": [
+    "assets/gp54.jpg"
+   ],
+   "featured": false,
+   "price": null,
+   "stock": null,
+   "active": true
+  }
+ ]
+}

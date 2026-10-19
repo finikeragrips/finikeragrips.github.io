@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin — Finikera Grips</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body class="admin">
+  <header class="site-header is-solid"><div class="wrap">
+    <span class="brand">FINIKERA <span>ADMIN</span></span>
+    <nav class="tabs" id="tabs" hidden>
+      <button data-tab="orders" aria-pressed="true">Pedidos</button>
+      <button data-tab="products" aria-pressed="false">Productos</button>
+      <button data-tab="options" aria-pressed="false">Estudio y precios</button>
+    </nav>
+    <button class="btn btn--ghost btn--sm" id="logout" hidden>Salir</button>
+  </div></header>
+  <main id="main" class="admin-main">
+    <section id="login" class="login">
+      <h1 class="h2">Acceso</h1>
+      <form id="login-form" class="form">
+        <div class="field"><label for="token">Token de administrador</label><input id="token" type="password" autocomplete="current-password" required /></div>
+        <button class="btn" type="submit">Entrar</button>
+        <p class="small muted" id="login-msg"></p>
+      </form>
+    </section>
+    <section id="view-orders" hidden></section>
+    <section id="view-products" hidden></section>
+    <section id="view-options" hidden></section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>

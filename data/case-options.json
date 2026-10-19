@@ -1,0 +1,57 @@
+{
+  "_note": "Opciones del Estudio de Estuches. price: número = ajuste en USD; null = requiere cotización. verify: true = confirmar disponibilidad real antes de publicar.",
+  "currency": "USD",
+  "models": [
+    { "id": "case-1911", "label": "Estuche 1911 / Government", "desc": "Para Colt 1911 de 5\" (Government) — pistola + 2 cargadores.", "dims": "38 × 26 × 9 cm aprox.", "price": null, "photo": "assets/estuche-06.jpg", "available": true },
+    { "id": "case-hipower", "label": "Estuche Hi-Power", "desc": "Para Browning Hi-Power — pistola + 2 cargadores.", "dims": "36 × 25 × 9 cm aprox.", "price": null, "photo": "assets/estuche-38.jpg", "available": true },
+    { "id": "case-beretta92", "label": "Estuche Beretta 92", "desc": "Para Beretta 92 / M9. Bajo pedido.", "dims": "Bajo pedido", "price": null, "photo": "assets/estuche-22.jpg", "available": true, "verify": true }
+  ],
+  "materials": [
+    { "id": "wood", "label": "Madera tallada", "desc": "Madera maciza con tapa grabada en relieve, acabado satinado.", "price": null },
+    { "id": "lacquer", "label": "Madera lacada", "desc": "Laca de alto brillo pulida a mano.", "price": null }
+  ],
+  "exteriorColors": [
+    { "id": "walnut", "label": "Nogal oscuro", "hex": "#3b2a20", "materials": ["wood"], "price": 0, "photos": ["assets/estuche-06.jpg", "assets/estuche-03.jpg", "assets/estuche-05.jpg"] },
+    { "id": "black", "label": "Negro piano", "hex": "#111111", "materials": ["lacquer"], "price": 0, "photos": ["assets/estuche-22.jpg", "assets/estuche-38.jpg", "assets/estuche-24.jpg"] },
+    { "id": "ivory", "label": "Blanco marfil", "hex": "#ece7dc", "materials": ["lacquer"], "price": 0, "photos": ["assets/estuche-12.jpg", "assets/estuche-11.jpg", "assets/estuche-13.jpg"] },
+    { "id": "custom", "label": "Color a solicitud", "hex": "#7a6a55", "materials": ["lacquer"], "price": null, "quote": true }
+  ],
+  "hardware": [
+    { "id": "gold", "label": "Herrajes dorados", "hex": "#c2a061", "price": 0 },
+    { "id": "silver", "label": "Herrajes plateados", "hex": "#bfc2c4", "price": null, "verify": true }
+  ],
+  "linings": [
+    { "id": "burgundy", "label": "Terciopelo vino", "hex": "#5a1222", "price": 0, "photos": ["assets/estuche-08.jpg", "assets/estuche-09.jpg"] },
+    { "id": "black", "label": "Terciopelo negro", "hex": "#151515", "price": null, "verify": true },
+    { "id": "navy", "label": "Terciopelo azul marino", "hex": "#14213d", "price": null, "verify": true },
+    { "id": "emerald", "label": "Terciopelo verde esmeralda", "hex": "#0f3d2e", "price": null, "verify": true }
+  ],
+  "foam": [
+    { "id": "fitted", "label": "Corte a medida", "desc": "Hueco para la pistola y 2 cargadores.", "price": 0 },
+    { "id": "fitted-grips", "label": "Corte a medida + cachas extra", "desc": "Incluye compartimento para un juego de cachas adicional.", "price": null, "verify": true },
+    { "id": "flat", "label": "Fondo liso de exhibición", "desc": "Sin corte; ideal para exhibir accesorios.", "price": null, "verify": true }
+  ],
+  "lidEmblems": [
+    { "id": "none", "label": "Tapa lisa", "price": 0 },
+    { "id": "horse", "label": "Caballo rampante en relieve", "price": 0 },
+    { "id": "medallion", "label": "Medallón ovalado", "price": null, "verify": true }
+  ],
+  "artwork": [
+    { "id": "none", "label": "Sin pintura", "price": 0 },
+    { "id": "filigree", "label": "Filigrana dorada a mano", "desc": "Ornamentos y filetes en pintura dorada.", "price": null, "quote": true },
+    { "id": "portrait", "label": "Retrato o imagen religiosa", "desc": "Virgen, santos, retratos — pieza única.", "price": null, "quote": true },
+    { "id": "freeform", "label": "Diseño libre", "desc": "Tu idea, con imagen de referencia.", "price": null, "quote": true }
+  ],
+  "artworkPlacements": [
+    { "id": "lid-outside", "label": "Tapa exterior" },
+    { "id": "lid-inside", "label": "Interior de la tapa" },
+    { "id": "both", "label": "Ambos" }
+  ],
+  "textFonts": [
+    { "id": "roman", "label": "Romana clásica", "css": "'Cormorant Garamond', Georgia, serif" },
+    { "id": "script", "label": "Caligráfica", "css": "'Pinyon Script', cursive" },
+    { "id": "block", "label": "Bloque", "css": "'Manrope', Arial, sans-serif" }
+  ],
+  "textPrice": null,
+  "limits": { "monogram": 3, "text": 28, "notes": 1500, "uploads": 3, "uploadBytes": 1800000 }
+}

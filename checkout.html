@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="icon" href="/assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&family=Pinyon+Script&display=swap" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <meta property="og:site_name" content="Finikera Grips" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://finikeragrips.github.io/assets/estuche-01.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Finalizar pedido | Finikera Grips</title>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+<main id="main">
+  <header class="page-head"><div class="wrap"><p class="eyebrow">Pedido</p><h1 class="h1">Finalizar pedido</h1></div></header>
+  <div class="wrap section--tight">
+    <div class="grid-2" style="align-items:start">
+      <form class="form" id="checkout-form" novalidate>
+        <h2 class="h3">Tus datos</h2>
+        <div id="form-errors"></div>
+        <div id="customer-fields"></div>
+        <div class="field"><label for="c-notes">Notas del pedido</label><textarea id="c-notes" name="notes" maxlength="1000" placeholder="Modelo exacto de tu pistola, dirección de envío, preguntas…"></textarea></div>
+        <button class="btn btn--block" type="submit" id="submit-btn">Enviar pedido</button>
+        <p class="small muted" style="margin:0">Al enviar no se realiza ningún cargo. Confirmamos disponibilidad, precio final y envío, y te enviamos los datos de pago (Zelle o Apple Pay).</p>
+      </form>
+      <aside>
+        <h2 class="h3">Resumen</h2>
+        <div id="lines"></div>
+        <div class="estimate" id="totals" style="margin-top:16px"></div>
+      </aside>
+    </div>
+  </div>
+</main>
+<script type="module" src="/js/checkout.js"></script>
+</body>
+</html>
