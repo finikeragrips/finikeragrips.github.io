@@ -133,6 +133,25 @@ function footer() {
   </footer>`;
 }
 
+// Copy must start synchronously inside the click handler (iOS Safari), so callers kick it off first.
+export function copyText(text) {
+  return navigator.clipboard?.writeText(text).then(() => true, () => false) ?? Promise.resolve(false);
+}
+
+// Shows a short "message copied" screen and sends the customer to the Instagram chat.
+export async function goToInstagram(text, copied = copyText(text)) {
+  const ok = await copied;
+  document.querySelectorAll('dialog[open]').forEach(d => d.close()); // modals sit above everything else
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="handoff" role="status" aria-live="assertive">
+      <p class="eyebrow">${ok ? 'Mensaje copiado' : 'Copia tu mensaje'}</p>
+      <p class="h2">${ok ? 'Abriendo Instagram…' : 'Envíanos este mensaje'}</p>
+      ${ok ? '<p class="muted">En el chat, mantén presionado → <b>Pegar</b> y envíalo.</p>' : `<textarea readonly class="handoff__text">${esc(text)}</textarea>`}
+      <a class="btn" href="${IG_DM}">Abrir Instagram</a>
+    </div>`);
+  if (ok) setTimeout(() => { location.href = IG_DM; }, 1100);
+}
+
 export function toast(msg) {
   const t = $('#toast');
   if (!t) return;

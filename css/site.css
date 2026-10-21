@@ -397,3 +397,8 @@ dialog[open] { animation: dlg .45s var(--ease); }
 
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: var(--ivory); color: var(--black); padding: 12px 18px; font-size: 14px; z-index: 300; opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none; max-width: calc(100vw - 32px); }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Instagram hand-off screen */
+.handoff { position: fixed; inset: 0; z-index: 400; background: rgba(11,11,11,.97); display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px var(--gutter); text-align: center; animation: dlg .4s var(--ease); }
+.handoff .h2 { margin: 0; }
+.handoff__text { width: min(560px, 90vw); min-height: 220px; background: var(--graphite); border: 1px solid var(--line-strong); color: var(--ivory); padding: 14px; font: 14px/1.5 var(--sans); }

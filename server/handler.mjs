@@ -150,11 +150,11 @@ function validateCustomer(c = {}) {
   const customer = {
     name: clean(c.name, 80), email: clean(c.email, 254).toLowerCase(), phone: clean(c.phone, 30),
     instagram: clean(c.instagram, 40).replace(/^@/, ''), state: clean(c.state, 40), city: clean(c.city, 60),
-    contactPref: CONTACT_PREFS.includes(c.contactPref) ? c.contactPref : 'email',
+    contactPref: CONTACT_PREFS.includes(c.contactPref) ? c.contactPref : 'instagram',
     paymentPref: PAYMENT_PREFS.includes(c.paymentPref) ? c.paymentPref : 'zelle'
   };
   if (customer.name.length < 2) errors.push('Nombre requerido');
-  if (!EMAIL_RE.test(customer.email)) errors.push('Correo electrónico inválido');
+  if (customer.email && !EMAIL_RE.test(customer.email)) errors.push('Correo electrónico inválido');
   if (customer.phone && !/^[+\d\s().-]{7,30}$/.test(customer.phone)) errors.push('Teléfono inválido');
   if (customer.instagram && !/^[\w.]{1,30}$/.test(customer.instagram)) errors.push('Usuario de Instagram inválido');
   if (!customer.state) errors.push('Estado requerido');
@@ -189,7 +189,9 @@ async function createOrder(req) {
   }
 
   let order;
-  const ref = newRef();
+  // The browser proposes the reference so it can be in the Instagram message before the upload finishes.
+  const proposed = typeof payload.ref === 'string' && /^FG-\d{6}-[A-Z2-9]{5}$/.test(payload.ref) ? payload.ref : null;
+  const ref = proposed && !(await store('orders').get(`${proposed}.json`)) ? proposed : newRef();
   const now = new Date().toISOString();
   if (kind === 'custom-case') {
     const { design, errors: dErr } = normalizeDesign({ ...payload.design, _hasUploads: uploads.length > 0 }, options);

@@ -193,8 +193,8 @@ $('#steps').addEventListener('submit', async e => {
     payload: { kind: 'custom-case', design, customer, consent },
     files: files.map((f, i) => new File([f.blob], `referencia-${i + 1}.jpg`, { type: f.blob.type })),
     website: form.website.value,
-    offlineSummary: () => describe(design, O),
-    offlineEstimate: () => estimate(design, O)
+    summary: () => describe(design, O),
+    estimate: () => estimate(design, O)
   }, form);
   if (ok) { try { localStorage.removeItem(DRAFT_KEY); } catch {} }
   else { btn.disabled = false; renderReview(); }

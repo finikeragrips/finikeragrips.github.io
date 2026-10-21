@@ -14,7 +14,7 @@ export async function notifyOrder(order, env = {}) {
   }).catch(() => {});
   await Promise.all([
     send(NOTIFY_EMAIL, `Nuevo pedido ${order.ref} (${order.kind})`, body),
-    send(order.customer.email, `Finikera Grips — recibimos tu solicitud ${order.ref}`,
+    order.customer.email && send(order.customer.email, `Finikera Grips — recibimos tu solicitud ${order.ref}`,
       `<p>Hola ${esc(order.customer.name)}, gracias por tu solicitud. Te contactaremos pronto.</p>${body}`)
   ]);
 }

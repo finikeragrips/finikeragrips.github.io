@@ -130,3 +130,12 @@ test('product media upload is public; customer uploads are not', async () => {
   assert.equal((await call(url.replace('/api/', ''))).status, 200);
   assert.equal((await call('media/uploads/x/ref-1.jpg')).status, 404);
 });
+
+test('Instagram flow: email optional, browser-proposed reference is kept', async () => {
+  const ref = 'FG-261021-ABCDE';
+  const { email, ...noEmail } = customer;
+  const r = await (await call('orders', orderForm({ kind: 'custom-case', consent: true, ref, customer: noEmail, design }))).json();
+  assert.equal(r.ref, ref);
+  const again = await (await call('orders', orderForm({ kind: 'custom-case', consent: true, ref, customer: noEmail, design }))).json();
+  assert.notEqual(again.ref, ref, 'duplicate reference gets a fresh one');
+});

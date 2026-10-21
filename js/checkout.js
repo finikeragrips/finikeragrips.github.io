@@ -32,8 +32,8 @@ $('#checkout-form').addEventListener('submit', async e => {
   const ok = await submitOrder({
     payload: { kind: 'cart', items, customer, consent, notes: form.notes.value.trim() },
     website: form.website.value,
-    offlineSummary: () => lines.map(l => [`${l.qty} × ${l.product.name}${l.variant ? ' — ' + l.variant.label : ''}`, l.unit === null ? 'Precio a confirmar' : money(l.unit * l.qty)]),
-    offlineEstimate: () => ({ status: priced ? 'estimate' : 'quote', total: priced ? total : null })
+    summary: () => lines.map(l => [`${l.qty} × ${l.product.name}${l.variant ? ' — ' + l.variant.label : ''}`, l.unit === null ? 'Precio a confirmar' : money(l.unit * l.qty)]),
+    estimate: () => ({ status: priced ? 'estimate' : 'quote', total: priced ? total : null })
   }, form);
   if (ok) cart.clear();
   else btn.disabled = false;
