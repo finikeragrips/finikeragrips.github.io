@@ -113,8 +113,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .header-actions { display: flex; align-items: center; gap: 6px; }
 .icon-btn { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; color: var(--ivory); }
 .icon-btn svg { width: 20px; height: 20px; }
-.cart-count { position: absolute; top: 6px; right: 4px; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px; background: var(--brass); color: var(--black); font: 700 10px/17px var(--sans); text-align: center; }
-.cart-count:empty { display: none; }
 .menu-btn { display: none; }
 @media (max-width: 980px) {
   .nav { display: none; }
@@ -248,23 +246,6 @@ dialog[open] { animation: dlg .45s var(--ease); }
 
 .gal-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(11,11,11,.5); }
 .gal-nav--prev { left: 8px; } .gal-nav--next { right: 8px; }
-
-/* ── Cart drawer ──────────────────────────────────────────── */
-.cart { position: fixed; inset: 0 0 0 auto; width: min(440px, 100vw); background: var(--graphite); z-index: 170; transform: translateX(100%); transition: transform .45s var(--ease); display: flex; flex-direction: column; border-left: 1px solid var(--line); visibility: hidden; }
-.cart.open { transform: none; visibility: visible; }
-.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 165; opacity: 0; pointer-events: none; transition: opacity .4s; }
-.scrim.show { opacity: 1; pointer-events: auto; }
-.cart__head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--line); }
-.cart__items { flex: 1; overflow: auto; padding: 8px 22px; }
-.cart__foot { padding: 20px 22px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
-.line { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: start; }
-.line img { width: 64px; height: 84px; object-fit: cover; }
-.line__name { font: 500 17px/1.2 var(--serif); }
-.line__ctrl { display: flex; gap: 12px; align-items: center; margin-top: 8px; font-size: 13px; }
-.line__ctrl button { background: none; border: 1px solid var(--line-strong); width: 26px; height: 26px; cursor: pointer; }
-.line__remove { border: 0 !important; width: auto !important; color: var(--muted); text-decoration: underline; }
-.totals { display: flex; justify-content: space-between; font-size: 14px; }
-.totals b { font: 400 22px/1 var(--serif); }
 
 /* ── Forms ────────────────────────────────────────────────── */
 .form { display: grid; gap: 18px; }

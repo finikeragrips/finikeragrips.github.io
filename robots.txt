@@ -1,5 +1,4 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /checkout.html
 Disallow: /order.html
 Sitemap: https://finikeragrips.github.io/sitemap.xml

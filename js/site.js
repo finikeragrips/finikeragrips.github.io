@@ -1,4 +1,4 @@
-// Shared layout, data loading, cart and helpers for every public page.
+// Shared layout, data loading and helpers for every public page.
 
 export const IG_HANDLE = 'finikeragrips';
 export const IG_DM = 'https://ig.me/m/finikeragrips';
@@ -40,39 +40,13 @@ let catalogP, optionsP;
 export const loadCatalog = () => (catalogP ||= loadJson('/api/catalog', '/data/products.json').then(c => ({ ...c, products: c.products.filter(p => p.active !== false) })));
 export const loadOptions = () => (optionsP ||= loadJson('/api/options', '/data/case-options.json'));
 
-// ── Cart (localStorage) ────────────────────────────────────────────────────
-const CART_KEY = 'fg-cart-v1';
-export const cart = {
-  items() { return store.get(CART_KEY, []); },
-  save(items) { store.set(CART_KEY, items); renderCartCount(); document.dispatchEvent(new CustomEvent('cart:change')); },
-  add(id, qty = 1, variant = null) {
-    const items = this.items();
-    const hit = items.find(i => i.id === id && (i.variant || null) === variant);
-    if (hit) hit.qty = Math.min(10, hit.qty + qty); else items.push({ id, variant, qty });
-    this.save(items);
-  },
-  setQty(index, qty) { const items = this.items(); if (!items[index]) return; if (qty < 1) items.splice(index, 1); else items[index].qty = Math.min(10, qty); this.save(items); },
-  clear() { this.save([]); },
-  count() { return this.items().reduce((s, i) => s + i.qty, 0); }
-};
-
-export async function cartLines() {
-  const { products } = await loadCatalog();
-  return cart.items().map((it, index) => {
-    const p = products.find(x => x.id === it.id);
-    if (!p) return null;
-    const v = it.variant ? (p.variants || []).find(x => x.id === it.variant) : null;
-    const unit = v && typeof v.price === 'number' ? v.price : p.price;
-    return { index, product: p, variant: v, qty: it.qty, unit: typeof unit === 'number' ? unit : null };
-  }).filter(Boolean);
-}
-
 // ── Layout ─────────────────────────────────────────────────────────────────
 const NAV = [
   ['/shop.html', 'Cachas'], ['/custom-cases.html', 'Estuches a medida'], ['/gallery.html', 'Galería'],
   ['/about.html', 'Taller'], ['/faq.html', 'Ayuda'], ['/contact.html', 'Contacto']
 ];
 const ICON = {
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>',
   bag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h16M4 16h16"/></svg>',
   close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m6 6 12 12M18 6 6 18"/></svg>'
@@ -89,7 +63,7 @@ function header() {
       <a class="brand" href="/" aria-label="Finikera Grips — inicio">FINIKERA <span>GRIPS</span></a>
       <nav class="nav" aria-label="Principal">${links}</nav>
       <div class="header-actions">
-        <button class="icon-btn" id="open-cart" aria-label="Abrir pedido">${ICON.bag}<span class="cart-count" id="cart-count"></span></button>
+        <a class="icon-btn" href="${IG_DM}" target="_blank" rel="noopener" aria-label="Escríbenos por Instagram">${ICON.ig}</a>
         <button class="icon-btn menu-btn" id="open-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer-nav">${ICON.menu}</button>
       </div>
     </div>
@@ -100,12 +74,6 @@ function header() {
     <p class="tiny">Phoenix, Arizona · Envíos a todo USA</p>
     <a class="link-arrow small" href="https://instagram.com/${IG_HANDLE}" target="_blank" rel="noopener" style="border:0;font-family:var(--sans)">@${IG_HANDLE}</a>
   </nav>
-  <div class="scrim" id="scrim"></div>
-  <aside class="cart" id="cart" aria-label="Tu pedido" aria-hidden="true">
-    <div class="cart__head"><span class="h3" style="margin:0">Tu pedido</span><button class="icon-btn" id="close-cart" aria-label="Cerrar">${ICON.close}</button></div>
-    <div class="cart__items" id="cart-items"></div>
-    <div class="cart__foot" id="cart-foot"></div>
-  </aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>`;
 }
 
@@ -161,50 +129,6 @@ export function toast(msg) {
   t._h = setTimeout(() => t.classList.remove('show'), 3200);
 }
 
-function renderCartCount() {
-  const el = $('#cart-count');
-  if (el) { const n = cart.count(); el.textContent = n ? String(n) : ''; }
-}
-
-async function renderCart() {
-  const lines = await cartLines();
-  const box = $('#cart-items'), foot = $('#cart-foot');
-  if (!lines.length) {
-    box.innerHTML = `<div class="empty"><p class="h3">Tu pedido está vacío</p><p class="small">Explora la colección de cachas o diseña tu estuche.</p></div>`;
-    foot.innerHTML = `<a class="btn btn--block" href="/shop.html">Ver cachas</a>`;
-    return;
-  }
-  box.innerHTML = lines.map(l => `
-    <div class="line">
-      <img src="${esc(src(l.product.images[0]))}" alt="" loading="lazy" />
-      <div>
-        <div class="line__name">${esc(l.product.name)}</div>
-        <div class="small muted">${esc(MODELS[l.product.model] || '')}${l.variant ? ' · ' + esc(l.variant.label) : ''}</div>
-        <div class="line__ctrl">
-          <button data-q="${l.index}" data-d="-1" aria-label="Menos">−</button><span>${l.qty}</span>
-          <button data-q="${l.index}" data-d="1" aria-label="Más">+</button>
-          <button class="line__remove" data-r="${l.index}">Quitar</button>
-        </div>
-      </div>
-      <div class="small">${l.unit === null ? 'A consultar' : money(l.unit * l.qty)}</div>
-    </div>`).join('');
-  const priced = lines.every(l => l.unit !== null);
-  const total = lines.reduce((s, l) => s + (l.unit || 0) * l.qty, 0);
-  foot.innerHTML = `
-    <div class="totals"><span>${priced ? 'Subtotal' : 'Subtotal estimado'}</span><b>${priced ? money(total) : 'A confirmar'}</b></div>
-    <p class="small muted" style="margin:0">${priced ? 'Envío calculado al confirmar.' : 'Algunas piezas no tienen precio publicado: confirmaremos precio y disponibilidad antes de cobrar.'}</p>
-    <a class="btn btn--block" href="/checkout.html">Continuar</a>`;
-}
-
-function openCart(open = true) {
-  $('#cart').classList.toggle('open', open);
-  $('#cart').setAttribute('aria-hidden', String(!open));
-  $('#scrim').classList.toggle('show', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-  if (open) { renderCart(); $('#close-cart').focus(); }
-}
-export { openCart };
-
 function openMenu(open = true) {
   $('#drawer-nav').classList.toggle('open', open);
   $('#open-menu').setAttribute('aria-expanded', String(open));
@@ -219,18 +143,9 @@ export function initReveal(root = document) {
 export function initLayout() {
   document.body.insertAdjacentHTML('afterbegin', header());
   document.body.insertAdjacentHTML('beforeend', footer());
-  renderCartCount();
-  $('#open-cart').addEventListener('click', () => openCart(true));
-  $('#close-cart').addEventListener('click', () => openCart(false));
-  $('#scrim').addEventListener('click', () => openCart(false));
   $('#open-menu').addEventListener('click', () => openMenu(true));
   $('#close-menu').addEventListener('click', () => openMenu(false));
-  $('#cart').addEventListener('click', e => {
-    const q = e.target.closest('[data-q]'), r = e.target.closest('[data-r]');
-    if (q) { const i = +q.dataset.q; cart.setQty(i, cart.items()[i].qty + +q.dataset.d); renderCart(); }
-    if (r) { cart.setQty(+r.dataset.r, 0); renderCart(); }
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { openCart(false); openMenu(false); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') openMenu(false); });
   const h = $('#site-header');
   const onScroll = () => h.classList.toggle('is-solid', scrollY > 40);
   addEventListener('scroll', onScroll, { passive: true });

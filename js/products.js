@@ -1,5 +1,5 @@
 // Product card + product detail dialog, shared by the home page and the shop.
-import { $, $$, esc, src, MODELS, COLORS, priceLabel, cart, openCart, toast, ICON, goToInstagram } from './site.js';
+import { $, $$, esc, src, MODELS, COLORS, priceLabel, ICON, goToInstagram } from './site.js';
 
 export function cardHTML(p) {
   const [colorName, hex] = COLORS[p.color] || [p.finish || '', '#555'];
@@ -58,7 +58,6 @@ export function openProduct(p) {
           <div class="qty"><button data-qd="-1" aria-label="Menos">−</button><input id="pd-qty" type="number" min="1" max="10" value="1" aria-label="Cantidad" /><button data-qd="1" aria-label="Más">+</button></div>
           <button class="btn" id="pd-ig">Pedir por Instagram</button>
         </div>
-        <button class="btn btn--ghost btn--sm" id="pd-add" style="justify-self:start">Añadir al pedido (varias piezas)</button>
         ${p.type === 'case' ? '<a class="link-arrow small" href="/custom-cases.html">O diseña uno a tu medida</a>' : ''}
         <p class="notice">Verifica el modelo exacto de tu pistola antes de pedir. Si tienes dudas, escríbenos y te ayudamos a elegir.</p>
       </div>
@@ -81,12 +80,6 @@ export function openProduct(p) {
     const msg = `Hola Finikera Grips 👋 Me interesa: «${p.name}»${v ? ` — ${v.label}` : ''} (${MODELS[p.model] || p.model})` +
       `${n > 1 ? `, cantidad: ${n}` : ''}. ¿Precio y disponibilidad?\n${location.origin}/shop.html?p=${p.id}`;
     goToInstagram(msg);
-  });
-  $('#pd-add', d).addEventListener('click', () => {
-    cart.add(p.id, Math.max(1, Math.min(10, +qty.value || 1)), vSel ? vSel.value : null);
-    d.close();
-    toast('Añadido a tu pedido');
-    openCart(true);
   });
   const u = new URL(location.href);
   u.searchParams.set('p', p.id);
