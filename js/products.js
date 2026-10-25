@@ -1,5 +1,5 @@
 // Product card + product detail dialog, shared by the home page and the shop.
-import { $, $$, esc, src, MODELS, COLORS, priceLabel, ICON, goToInstagram } from './site.js';
+import { $, $$, esc, img, MODELS, COLORS, priceLabel, ICON, goToInstagram } from './site.js';
 
 export function cardHTML(p) {
   const [colorName, hex] = COLORS[p.color] || [p.finish || '', '#555'];
@@ -8,7 +8,7 @@ export function cardHTML(p) {
   return `
     <button class="card reveal" data-id="${esc(p.id)}" aria-label="${esc(p.name)} — ver detalles">
       <div class="card__media">
-        <img src="${esc(src(p.images[0]))}" alt="${esc(p.name)}" loading="lazy" decoding="async" />
+        <img src="${esc(img(p.images[0]))}" alt="${esc(p.name)}" loading="lazy" decoding="async" />
         ${badge ? `<span class="card__badge">${esc(badge)}</span>` : ''}
       </div>
       <div class="card__body">
@@ -40,8 +40,8 @@ export function openProduct(p) {
     <div class="pd">
       <div class="pd__gallery">
         <button class="icon-btn dlg-close" data-close aria-label="Cerrar">${ICON.close}</button>
-        <img class="pd__main" src="${esc(src(p.images[0]))}" alt="${esc(p.name)}" />
-        ${p.images.length > 1 ? `<div class="pd__thumbs">${p.images.map((im, i) => `<button data-img="${i}" aria-current="${i === 0}" aria-label="Foto ${i + 1}"><img src="${esc(src(im))}" alt="" loading="lazy" /></button>`).join('')}</div>` : ''}
+        <img class="pd__main" src="${esc(img(p.images[0], 1080))}" alt="${esc(p.name)}" />
+        ${p.images.length > 1 ? `<div class="pd__thumbs">${p.images.map((im, i) => `<button data-img="${i}" aria-current="${i === 0}" aria-label="Foto ${i + 1}"><img src="${esc(img(im))}" alt="" loading="lazy" /></button>`).join('')}</div>` : ''}
       </div>
       <div class="pd__info">
         <p class="eyebrow" style="margin:0">${esc(MODELS[p.model] || p.model)}</p>
@@ -65,7 +65,7 @@ export function openProduct(p) {
   const main = $('.pd__main', d);
   d.addEventListener('click', e => {
     const t = e.target.closest('[data-img]');
-    if (t) { main.src = src(p.images[+t.dataset.img]); $$('[data-img]', d).forEach(b => b.setAttribute('aria-current', String(b === t))); }
+    if (t) { main.src = img(p.images[+t.dataset.img], 1080); $$('[data-img]', d).forEach(b => b.setAttribute('aria-current', String(b === t))); }
   });
   const qty = $('#pd-qty', d);
   $$('[data-qd]', d).forEach(b => b.addEventListener('click', () => { qty.value = Math.max(1, Math.min(10, (+qty.value || 1) + +b.dataset.qd)); }));

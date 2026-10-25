@@ -1,5 +1,5 @@
 // Custom case studio: step-by-step configurator, live preview, uploads and submission.
-import { initLayout, loadOptions, $, $$, esc, src, money, lightbox, toast } from './site.js';
+import { initLayout, loadOptions, $, $$, esc, img, money, lightbox, toast } from './site.js';
 import { DEFAULT_DESIGN, colorsFor, normalizeDesign, estimate, describe } from './lib/case-config.mjs';
 import { renderCase } from './case-preview.js';
 import { compressImage } from './upload.js';
@@ -32,7 +32,7 @@ const next = i => i < STEPS.length - 1 ? `<div><button type="button" class="btn 
 const STEPS = [
   { title: 'Modelo', value: () => L(O.models, d.model), body: () => `<div class="opts" role="radiogroup" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">${O.models.filter(m => m.available !== false).map(m => `
       <button type="button" class="opt opt--model" role="radio" data-set="model" data-val="${esc(m.id)}" aria-checked="${d.model === m.id}">
-        <img src="${esc(src(m.photo))}" alt="" loading="lazy" /><div><b>${esc(m.label)}</b><small>${esc(m.desc)}</small><small>${esc(m.dims || '')}</small></div></button>`).join('')}</div>` },
+        <img src="${esc(img(m.photo))}" alt="" loading="lazy" /><div><b>${esc(m.label)}</b><small>${esc(m.desc)}</small><small>${esc(m.dims || '')}</small></div></button>`).join('')}</div>` },
   { title: 'Exterior', value: () => `${L(O.materials, d.material)} · ${L(O.exteriorColors, d.exterior)}`, body: () =>
       group('Material', optButtons('material', O.materials)) +
       group('Color', swatches('exterior', colorsFor(O, d.material))) +
@@ -93,7 +93,7 @@ function renderPreview() {
   const lin = O.linings.find(c => c.id === d.lining) || {};
   const model = O.models.find(m => m.id === d.model) || {};
   const photos = [...new Set([...(ext.photos || []), ...(lin.photos || []), model.photo].filter(Boolean))];
-  $('#refs').innerHTML = photos.map((p, i) => `<button type="button" data-ref="${i}" aria-label="Ver foto real ${i + 1}"><img src="${esc(src(p))}" alt="" loading="lazy" /></button>`).join('');
+  $('#refs').innerHTML = photos.map((p, i) => `<button type="button" data-ref="${i}" aria-label="Ver foto real ${i + 1}"><img src="${esc(img(p))}" alt="" loading="lazy" /></button>`).join('');
   $('#refs').onclick = e => { const b = e.target.closest('[data-ref]'); if (b) lightbox(photos, +b.dataset.ref); };
   const est = estimate(d, O);
   $('#mobile-price').textContent = est.status === 'estimate' ? money(est.total) : 'Cotización';

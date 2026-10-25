@@ -1,4 +1,4 @@
-import { initLayout, $, $$, esc, src, lightbox, initReveal } from './site.js';
+import { initLayout, $, $$, esc, img, lightbox, initReveal } from './site.js';
 
 initLayout();
 const { items } = await (await fetch('/data/gallery.json')).json();
@@ -7,7 +7,7 @@ let list = items;
 function render(cat) {
   list = cat ? items.filter(i => i.category === cat) : items;
   $('#masonry').innerHTML = list.map((it, i) => `
-    <figure class="reveal" tabindex="0" data-i="${i}"><img src="${esc(src(it.src))}" alt="${esc(it.caption)}" loading="lazy" decoding="async" /><figcaption>${esc(it.caption)}</figcaption></figure>`).join('');
+    <figure class="reveal" tabindex="0" data-i="${i}"><img src="${esc(img(it.src))}" alt="${esc(it.caption)}" loading="lazy" decoding="async" /><figcaption>${esc(it.caption)}</figcaption></figure>`).join('');
   initReveal($('#masonry'));
 }
 const openAt = el => lightbox(list.map(i => i.src), +el.dataset.i, list.map(i => i.caption));

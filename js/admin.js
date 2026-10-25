@@ -1,6 +1,6 @@
 // Admin console: orders, products/inventory, studio options & pricing.
 // Auth: ADMIN_TOKEN (Netlify env var), kept in sessionStorage for this tab only.
-import { $, $$, esc, src, money, MODELS, COLORS } from './site.js';
+import { $, $$, esc, img, src, money, MODELS, COLORS } from './site.js';
 
 const TOKEN_KEY = 'fg-admin-token';
 let token = sessionStorage.getItem(TOKEN_KEY) || '';
@@ -156,7 +156,7 @@ function renderProducts() {
       <button class="btn btn--ghost btn--sm" id="p-new">Nuevo producto</button><button class="btn btn--sm" id="p-save">Publicar cambios</button></div></div>
     <p class="small muted">Los cambios se guardan en el navegador hasta que pulses <b>Publicar cambios</b>.</p>
     <div class="table-wrap"><table class="data"><thead><tr><th></th><th>Nombre</th><th>Modelo</th><th>Color</th><th>Precio</th><th>Stock</th><th>Variantes</th><th>Visible</th></tr></thead><tbody>
-    ${list.map(({ p, i }) => `<tr data-i="${i}"><td><img src="${esc(src(p.images[0] || ''))}" alt="" /></td><td class="wrap-cell">${esc(p.name)}${p.featured ? ' ★' : ''}<br><span class="muted small">${esc(p.id)}</span></td>
+    ${list.map(({ p, i }) => `<tr data-i="${i}"><td><img src="${esc(img(p.images[0] || ''))}" alt="" /></td><td class="wrap-cell">${esc(p.name)}${p.featured ? ' ★' : ''}<br><span class="muted small">${esc(p.id)}</span></td>
       <td>${esc(MODELS[p.model] || p.model)}</td><td>${esc((COLORS[p.color] || [p.color])[0])}</td><td>${p.price == null ? '—' : money(p.price)}</td>
       <td>${p.stock == null ? '—' : p.stock}</td><td>${(p.variants || []).length || ''}</td><td>${p.active === false ? 'No' : 'Sí'}</td></tr>`).join('')}
     </tbody></table></div>`;

@@ -1,4 +1,4 @@
-import { initLayout, loadCatalog, initReveal, $, esc, MODELS, COLORS } from './site.js';
+import { initLayout, loadCatalog, initReveal, $, esc, img, MODELS, COLORS } from './site.js';
 import { cardHTML, bindCards, openProduct } from './products.js';
 
 initLayout();
@@ -93,6 +93,19 @@ $('#filters-close').addEventListener('click', () => showFilters(false));
 $('#filters-apply').addEventListener('click', () => showFilters(false));
 
 bindCards($('#grid'), products);
+
+// Structured data so search engines can list the catalog.
+document.head.insertAdjacentHTML('beforeend', `<script type="application/ld+json">${JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem', position: i + 1,
+    item: {
+      '@type': 'Product', name: p.name, description: p.description, image: new URL(img(p.images[0], 1080), location.origin).href,
+      url: `${location.origin}/shop.html?p=${p.id}`, brand: { '@type': 'Brand', name: 'Finikera Grips' },
+      ...(typeof p.price === 'number' ? { offers: { '@type': 'Offer', price: p.price, priceCurrency: 'USD', availability: p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock' } } : {})
+    }
+  }))
+}).replace(/</g, '\\u003c')}</script>`);
 render();
 const deep = params.get('p') && products.find(p => p.id === params.get('p'));
 if (deep) openProduct(deep);

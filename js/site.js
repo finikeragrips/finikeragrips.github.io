@@ -15,6 +15,11 @@ export const $ = (s, el = document) => el.querySelector(s);
 export const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const src = p => (/^(\/|https?:|blob:|data:)/.test(p) ? p : '/' + p);
+// Optimized WebP copy of a bundled photo (made by scripts/make-images.py); other images are used as-is.
+export const img = (p, w = 640) => {
+  const m = /^\/?assets\/([\w.-]+)\.jpe?g$/i.exec(p || '');
+  return m ? `/assets/w${w}/${m[1]}.webp` : src(p);
+};
 export const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 export const priceLabel = p => (typeof p === 'number' ? money(p) : 'Precio a consultar');
 
@@ -173,10 +178,10 @@ export function lightbox(images, start = 0, captions = []) {
     dlg.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') dlg._go(-1); if (e.key === 'ArrowRight') dlg._go(1); });
   }
   let i = start;
-  const img = $('img', dlg), count = $('.count', dlg);
+  const pic = $('img', dlg), count = $('.count', dlg);
   dlg._go = d => { i = (i + d + images.length) % images.length; show(); };
   const show = () => {
-    img.src = src(images[i]); img.alt = captions[i] || '';
+    pic.src = img(images[i], 1080); pic.alt = captions[i] || '';
     count.textContent = images.length > 1 ? `${i + 1} / ${images.length}` : '';
     $$('.gal-nav', dlg).forEach(b => (b.hidden = images.length < 2));
   };
