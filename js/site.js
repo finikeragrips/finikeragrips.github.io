@@ -43,7 +43,7 @@ export const loadOptions = () => (optionsP ||= loadJson('/api/options', '/data/c
 // ── Layout ─────────────────────────────────────────────────────────────────
 const NAV = [
   ['/shop.html', 'Cachas'], ['/custom-cases.html', 'Estuches a medida'], ['/gallery.html', 'Galería'],
-  ['/about.html', 'Taller'], ['/faq.html', 'Ayuda'], ['/contact.html', 'Contacto']
+  ['/about.html', 'Nosotros'], ['/faq.html', 'Ayuda'], ['/contact.html', 'Contacto']
 ];
 const ICON = {
   ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>',
@@ -84,7 +84,7 @@ function footer() {
       <div class="footer-grid">
         <div>
           <div class="brand" style="margin-bottom:18px">FINIKERA <span>GRIPS</span></div>
-          <p class="muted" style="max-width:34ch">Cachas y estuches de presentación hechos a mano en Phoenix, Arizona. Accesorios decorativos — no vendemos armas.</p>
+          <p class="muted" style="max-width:34ch">Cachas y estuches de presentación seleccionados en Phoenix, Arizona. Accesorios decorativos — no vendemos armas.</p>
         </div>
         <div><h4>Tienda</h4><ul>
           <li><a href="/shop.html?model=colt1911">Colt 1911</a></li><li><a href="/shop.html?model=hipower">Hi-Power</a></li>

@@ -45,7 +45,7 @@ const STEPS = [
       (d.artwork !== 'none' ? group('Ubicación', optButtons('placement', O.artworkPlacements)) + `
       <div class="field"><label for="artworkNotes">Describe la obra</label><textarea id="artworkNotes" data-text="artworkNotes" maxlength="600" placeholder="Ej.: Virgen de Guadalupe con rosas, tonos dorados, estilo clásico.">${esc(d.artworkNotes)}</textarea>
       <span class="hint">Puedes subir imágenes de referencia en el siguiente paso.</span></div>
-      <p class="notice">Cada pintura es única y la hace a mano nuestro artista. Te enviaremos una cotización y un boceto antes de empezar.</p>` : '') },
+      <p class="notice">Cada pintura es única y se hace a mano. Te enviaremos una cotización y un boceto antes de empezar.</p>` : '') },
   { title: 'Personalización', value: () => [d.monogram, d.text].filter(Boolean).join(' · ') || (files.length ? `${files.length} imagen(es)` : 'Opcional'), body: () => `
       <div class="form-row">
         <div class="field"><label for="monogram">Monograma</label><input id="monogram" data-text="monogram" maxlength="${O.limits.monogram}" value="${esc(d.monogram)}" placeholder="Ej.: JMR" autocomplete="off" /><span class="hint">Hasta ${O.limits.monogram} letras</span></div>

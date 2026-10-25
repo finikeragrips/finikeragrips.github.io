@@ -24,7 +24,7 @@ if (!o || (ref && o.ref !== ref)) {
       ? `<div class="notice" style="margin:24px 0">Para completar tu ${quote ? 'solicitud' : 'pedido'}, envíanos este resumen por Instagram${o.files ? ' junto con tus imágenes de referencia' : ''}. Lo copiamos por ti.</div>
          <div class="hero__actions no-print"><button class="btn" id="dm">Copiar y abrir Instagram</button></div>`
       : `<p class="lead" style="margin-top:20px">${quote
-          ? 'Nuestro artista revisará tu diseño y te enviará una cotización y, si aplica, un boceto en 1–2 días hábiles.'
+          ? 'Revisaremos tu diseño y te enviará una cotización y, si aplica, un boceto en 1–2 días hábiles.'
           : 'Confirmaremos disponibilidad y te enviaremos los datos de pago (Zelle o Apple Pay). No se ha realizado ningún cargo.'}
          Te contactaremos por el medio que elegiste.</p>`}
     <h2 class="h3" style="margin-top:40px">Resumen</h2>
