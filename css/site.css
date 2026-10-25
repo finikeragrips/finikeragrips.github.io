@@ -141,7 +141,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hero__media { position: relative; overflow: hidden; }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; animation: heroIn 1.6s var(--ease) both; }
 .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--black) 0%, transparent 22%); }
-.hero__caption { position: absolute; right: var(--gutter); bottom: 28px; z-index: 2; text-align: right; }
+.hero__media img.is-pending { opacity: 0; animation: none; }
+.hero__feature { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.hero__feature b { color: var(--ivory); font: 400 19px/1.2 var(--serif); }
+.hero__feature::after { content: '→'; color: var(--brass); transition: transform .3s var(--ease); }
+.hero__feature:hover::after { transform: translateX(4px); }
 @keyframes heroIn { from { transform: scale(1.06); opacity: 0; } to { transform: none; opacity: 1; } }
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -390,5 +394,4 @@ dialog[open] { animation: dlg .45s var(--ease); }
   .card__name { font-size: 17px; }
   .card__meta { flex-direction: column; gap: 2px; font-size: 12px; }
   .card__badge { top: 8px; left: 8px; padding: 5px 7px; font-size: 9px; }
-  .hero__caption { display: none; }
 }
