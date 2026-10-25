@@ -383,3 +383,12 @@ dialog[open] { animation: dlg .45s var(--ease); }
 .handoff { position: fixed; inset: 0; z-index: 400; background: rgba(11,11,11,.97); display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px var(--gutter); text-align: center; animation: dlg .4s var(--ease); }
 .handoff .h2 { margin: 0; }
 .handoff__text { width: min(560px, 90vw); min-height: 220px; background: var(--graphite); border: 1px solid var(--line-strong); color: var(--ivory); padding: 14px; font: 14px/1.5 var(--sans); }
+
+/* Phones: two products per row, hero caption hidden (it overlapped the headline) */
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+  .card__name { font-size: 17px; }
+  .card__meta { flex-direction: column; gap: 2px; font-size: 12px; }
+  .card__badge { top: 8px; left: 8px; padding: 5px 7px; font-size: 9px; }
+  .hero__caption { display: none; }
+}
