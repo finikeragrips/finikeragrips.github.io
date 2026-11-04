@@ -12,7 +12,7 @@
   ],
   "exteriorColors": [
     { "id": "walnut", "label": "Nogal oscuro", "hex": "#3b2a20", "materials": ["wood"], "price": 0, "photos": ["assets/estuche-06.jpg", "assets/estuche-03.jpg", "assets/estuche-05.jpg"] },
-    { "id": "black", "label": "Negro piano", "hex": "#111111", "materials": ["lacquer"], "price": 0, "photos": ["assets/estuche-22.jpg", "assets/estuche-38.jpg", "assets/estuche-24.jpg"] },
+    { "id": "black", "label": "Negro piano", "hex": "#111111", "materials": ["lacquer"], "price": 0, "photos": ["assets/estuche-48.jpg", "assets/estuche-44.jpg", "assets/estuche-22.jpg", "assets/estuche-38.jpg"] },
     { "id": "ivory", "label": "Blanco marfil", "hex": "#ece7dc", "materials": ["lacquer"], "price": 0, "photos": ["assets/estuche-12.jpg", "assets/estuche-11.jpg", "assets/estuche-13.jpg"] },
     { "id": "custom", "label": "Color a solicitud", "hex": "#7a6a55", "materials": ["lacquer"], "price": null, "quote": true }
   ],
@@ -22,7 +22,7 @@
   ],
   "linings": [
     { "id": "burgundy", "label": "Terciopelo vino", "hex": "#5a1222", "price": 0, "photos": ["assets/estuche-08.jpg", "assets/estuche-09.jpg"] },
-    { "id": "black", "label": "Terciopelo negro", "hex": "#151515", "price": null, "verify": true },
+    { "id": "black", "label": "Interior negro", "hex": "#151515", "price": null, "photos": ["assets/estuche-44.jpg", "assets/estuche-45.jpg"] },
     { "id": "navy", "label": "Terciopelo azul marino", "hex": "#14213d", "price": null, "verify": true },
     { "id": "emerald", "label": "Terciopelo verde esmeralda", "hex": "#0f3d2e", "price": null, "verify": true }
   ],

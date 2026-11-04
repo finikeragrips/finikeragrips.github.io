@@ -2,6 +2,21 @@
  "_note": "Galería: category = cases | installed | grips",
  "items": [
   {
+   "src": "assets/estuche-44.jpg",
+   "category": "cases",
+   "caption": "Estuche negro con monograma personalizado en dorado"
+  },
+  {
+   "src": "assets/estuche-45.jpg",
+   "category": "cases",
+   "caption": "Estuche negro con monograma personalizado en dorado"
+  },
+  {
+   "src": "assets/estuche-46.jpg",
+   "category": "cases",
+   "caption": "Estuche negro con monograma personalizado en dorado"
+  },
+  {
    "src": "assets/ig-01.jpg",
    "category": "installed",
    "caption": "Cachas instaladas por un cliente"

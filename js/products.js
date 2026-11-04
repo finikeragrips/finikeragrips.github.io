@@ -50,7 +50,7 @@ export function openProduct(p) {
         <p class="muted" style="margin:0">${esc(p.description)}</p>
         <dl>
           <dt>Acabado</dt><dd>${esc(p.finish || '—')}</dd>
-          <dt>Compatible con</dt><dd>${esc(MODELS[p.model] || p.model)}</dd>
+          ${p.type === 'case' ? '<dt>Tipo</dt><dd>Estuche de presentación</dd>' : `<dt>Compatible con</dt><dd>${esc(MODELS[p.model] || p.model)}</dd>`}
           <dt>Disponibilidad</dt><dd>${soldOut ? 'Agotado — puedes solicitarlo' : typeof p.stock === 'number' ? `${p.stock} en existencia` : 'Confirmamos al recibir tu pedido'}</dd>
         </dl>
         ${variants.length ? `<div class="field"><label for="pd-variant">Opción</label><select id="pd-variant">${variants.map(v => `<option value="${esc(v.id)}">${esc(v.label)}</option>`).join('')}</select></div>` : ''}

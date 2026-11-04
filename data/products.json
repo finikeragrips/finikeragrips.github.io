@@ -2,6 +2,26 @@
  "currency": "USD",
  "products": [
   {
+   "id": "estuches-estuche-negro-monograma-dorado",
+   "type": "case",
+   "model": "estuches",
+   "color": "negro",
+   "name": "Estuche Negro Monograma Dorado",
+   "description": "Estuche de presentación para 1911 en laca negro piano: tapa con caballo rampante y filigrana en relieve, monograma personalizado pintado en dorado en el interior de la tapa, interior negro con corte a medida para la pistola y 2 cargadores, herrajes y patas doradas. Incluye funda de terciopelo.",
+   "finish": "Negro Laca / Monograma Dorado",
+   "images": [
+    "assets/estuche-44.jpg",
+    "assets/estuche-45.jpg",
+    "assets/estuche-46.jpg",
+    "assets/estuche-47.jpg",
+    "assets/estuche-48.jpg"
+   ],
+   "featured": true,
+   "price": null,
+   "stock": null,
+   "active": true
+  },
+  {
    "id": "estuches-estuche-premium-negro-virgen",
    "type": "case",
    "model": "estuches",
