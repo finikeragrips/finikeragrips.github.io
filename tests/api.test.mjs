@@ -1,7 +1,7 @@
 // API tests against the local filesystem store: `npm test`
 import { test, before } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync } from 'node:fs';
+import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,7 +32,8 @@ const design = { model: 'case-1911', material: 'wood', exterior: 'walnut', hardw
 
 test('public catalog and options', async () => {
   const c = await (await call('catalog')).json();
-  assert.equal(c.products.length, 55);
+  const bundled = JSON.parse(readFileSync(new URL('../data/products.json', import.meta.url), 'utf8'));
+  assert.equal(c.products.length, bundled.products.filter(p => p.active !== false).length);
   const o = await (await call('options')).json();
   assert.ok(o.models.length >= 2);
 });
