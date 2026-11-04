@@ -28,8 +28,15 @@ loadCatalog().then(({ products }) => {
     link.addEventListener('click', e => { e.preventDefault(); openProduct(hero); });
   }
 
-  const grips = products.filter(p => p.type === 'grip');
-  const picks = [...grips.filter(p => p.featured), ...grips.filter(p => !p.featured)].slice(0, 8);
+  // Featured: 5 grips and 3 cases, with a case in every row.
+  const ranked = type => {
+    const list = products.filter(p => p.type === type);
+    return [...list.filter(p => p.featured), ...list.filter(p => !p.featured)];
+  };
+  const grips = ranked('grip').slice(0, 5);
+  const cases = ranked('case').slice(0, 3);
+  const picks = [...grips];
+  [1, 4, 7].forEach((at, i) => cases[i] && picks.splice(Math.min(at, picks.length), 0, cases[i]));
   grid.innerHTML = picks.map(cardHTML).join('');
   bindCards(grid, picks);
   initReveal(grid);

@@ -76,7 +76,7 @@ function header() {
   <nav class="drawer-nav" id="drawer-nav" aria-label="Menú móvil">
     <button class="icon-btn drawer-close" id="close-menu" aria-label="Cerrar menú">${ICON.close}</button>
     <a href="/">Inicio</a>${links}
-    <p class="tiny">Phoenix, Arizona · Envíos a todo USA</p>
+    <p class="tiny">Phoenix, Arizona · Envíos a USA y México</p>
     <a class="link-arrow small" href="https://instagram.com/${IG_HANDLE}" target="_blank" rel="noopener" style="border:0;font-family:var(--sans)">@${IG_HANDLE}</a>
   </nav>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>`;

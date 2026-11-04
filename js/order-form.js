@@ -1,7 +1,8 @@
 // Customer details form + order submission for the case studio.
 import { esc, copyText, goToInstagram } from './site.js';
 
-const STATES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming','Puerto Rico'];
+const STATES_US = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming','Puerto Rico'];
+const STATES_MX = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua','Ciudad de México','Coahuila','Colima','Durango','Estado de México','Guanajuato','Guerrero','Hidalgo','Jalisco','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas'];
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,24}$/i;
 
 export function customerFieldsHTML() {
@@ -15,7 +16,7 @@ export function customerFieldsHTML() {
       <div class="field"><label for="c-ig">Instagram</label><input id="c-ig" name="instagram" maxlength="31" placeholder="@usuario" autocomplete="off" /></div>
     </div>
     <div class="form-row">
-      <div class="field"><label for="c-state">Estado *</label><select id="c-state" name="state" required><option value="">Selecciona…</option>${STATES.map(s => `<option>${s}</option>`).join('')}</select></div>
+      <div class="field"><label for="c-state">Estado *</label><select id="c-state" name="state" required><option value="">Selecciona…</option><optgroup label="Estados Unidos">${STATES_US.map(s => `<option>${s}</option>`).join('')}</optgroup><optgroup label="México">${STATES_MX.map(s => `<option value="${s} (México)">${s}</option>`).join('')}</optgroup></select></div>
       <div class="field"><label for="c-city">Ciudad</label><input id="c-city" name="city" autocomplete="address-level2" maxlength="60" /></div>
     </div>
     <div class="form-row">
