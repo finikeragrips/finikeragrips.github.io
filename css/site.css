@@ -50,6 +50,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ── Type ─────────────────────────────────────────────────── */
 .eyebrow { font: 600 11px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--brass); margin: 0 0 18px; }
 .display { font: 400 clamp(44px, 7.4vw, 104px)/.95 var(--serif); letter-spacing: -.02em; margin: 0; }
+.display--long { font-size: clamp(36px, 5vw, 72px); line-height: 1.02; }
 .display em, .h1 em, .h2 em { font-style: italic; color: var(--brass-2); }
 .h1 { font: 400 clamp(38px, 5.4vw, 72px)/1 var(--serif); letter-spacing: -.015em; margin: 0 0 20px; }
 .h2 { font: 400 clamp(30px, 3.8vw, 50px)/1.05 var(--serif); letter-spacing: -.01em; margin: 0 0 16px; }
